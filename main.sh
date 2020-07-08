@@ -25,7 +25,7 @@ elif [ $spieler -eq 4 ]; then
 elif [ $spieler -eq 5 ]; then
     runden=12
 elif [ $spieler -eq 6 ]; then
-    runden=3
+    runden=20
 fi
 
 runde=1
@@ -172,7 +172,9 @@ while [ $runde -le $runden ]; do
 	a=$(( $a + 1 ))
     done
 
-
+    unset array
+    unset array_sorted
+    
     declare -a array
 
     i=1
@@ -194,7 +196,7 @@ while [ $runde -le $runden ]; do
 
     i=$spieler
     b=1
-    while [ $i -ge 1 ]; do
+    while [ $i -ge 0 ]; do
 	array[$b]=${array_sorted[$i]}
 	i=$(( $i - 1 ))
 	b=$(( $b + 1 ))
@@ -203,10 +205,10 @@ while [ $runde -le $runden ]; do
     b=1
     i=$(( $tmp_runde + 3 ))
     for a in "${!array[@]}"; do
-	if [ $a -gt 0 ]; then
+	if [ $a -ne 1 ]; then
 	    var=${array[$a]}
 	    aktuspieler="spielername"${var#* }
-	    tput cup $i 5
+            tput cup $i 5
 	    echo "$b. ${!aktuspieler}"
 	    tput cup $i 18
 	    echo -e "\033[1m"${var% *}"\033[0m"
