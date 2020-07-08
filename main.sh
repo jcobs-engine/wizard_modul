@@ -72,7 +72,7 @@ while [ $runde -le $runden ]; do
 	echo -e "\033[42m${!aktu_spielername}\033[0m" 
 	
 	tput cup $a 30
-	read a_gesacht_runde${runde}_spieler$i
+	read a_gesacht_runde${runde}_spieler$sid
 	
 	tput cup $a 0
 	echo -e "\033[0m${!aktu_spielername}\033[0m" 
@@ -97,7 +97,7 @@ while [ $runde -le $runden ]; do
 	echo -e "\033[42m${!aktu_spielername}\033[0m" 
 
 	tput cup $a 60
-	read a_bekommen_runde${runde}_spieler$i
+	read a_bekommen_runde${runde}_spieler$sid
 
 	tput cup $a 0
 	echo -e "\033[0m${!aktu_spielername}\033[0m" 
